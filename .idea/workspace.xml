@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="Add entities">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/change" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateFeedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateProposal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/SaveOrUpdateWallet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/ValidationGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/user/SaveOrUpdateCustomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/user/SaveOrUpdateExpert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/user/SaveOrUpdateManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/enums/ExpertStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/enums/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/AddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/FeedbackMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/OrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ProposalMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ServiceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/WalletMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/CustomerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ExpertMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ManagerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/address/AddressRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/address/AddressRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/feedback/FeedbackRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/feedback/FeedbackRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/order/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/order/OrderRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/proposal/ProposalRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/proposal/ProposalRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/service/ServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/service/ServiceRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/customer/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/customer/CustomerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/expert/ExpertRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/expert/ExpertRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/manager/ManagerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/manager/ManagerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/wallet/WalletRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/wallet/WalletRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/FinalProjectTahaBadriApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/FinalProjectTahaBadriApplication.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2yxPtULWcI0r1keFqGYUBIsLxvM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.BaseServiceImplTest.executor": "Run",
+    "JUnit.CustomerServiceImplTest.executor": "Run",
+    "JUnit.ExpertServiceImplTest.addService_shouldThrowException_whenExpertNotFound.executor": "Run",
+    "JUnit.ExpertServiceImplTest.executor": "Run",
+    "JUnit.OrderServiceImplTest.executor": "Run",
+    "JUnit.OrderServiceImplTest.saveOrUpdateProposal_shouldSaveOrder_whenProposedPriceIsValid.executor": "Run",
+    "Maven.Home_Service [clean].executor": "Run",
+    "Maven.Home_Service [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.FinalProjectTahaBadriApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Me/Java/Projec/Final_Project_Taha_Badri/src/main/java/ir/maktabsharif/final_project_taha_badri/repository",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "D:/Me/Java/Projec/Final_Project_Taha_Badri/src/main/java/ir/maktabsharif/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ir.maktabsharif.final_project_taha_badri.domain.dto" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.domain.mapper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Me\Java\Projec\Final_Project_Taha_Badri\src\main\java\ir\maktabsharif\final_project_taha_badri\repository" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ir.maktabsharif.final_project_taha_badri.service.user.expert" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.service.user.customer" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.service.order" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.service.base" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ir.maktabsharif.final_project_taha_badri.service" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.repository.user.manager" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.repository.user.expert" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.repository.service" />
+      <recent name="ir.maktabsharif.final_project_taha_badri.repository.proposal" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ExpertServiceImplTest">
+    <configuration name="BaseServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.base" />
+      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.base.BaseServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.user.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.customer" />
+      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.customer.CustomerServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpertServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.user.expert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.expert" />
+      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.expert.ExpertServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpertServiceImplTest.addService_shouldThrowException_whenExpertNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.user.expert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.expert" />
+      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.user.expert.ExpertServiceImplTest" />
+      <option name="METHOD_NAME" value="addService_shouldThrowException_whenExpertNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.order" />
+      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.order.OrderServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FinalProjectTahaBadriApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Final_Project_Taha_Badri (1)" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ir.maktabsharif.final_project_taha_badri.FinalProjectTahaBadriApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ExpertServiceImplTest" />
+        <item itemvalue="JUnit.CustomerServiceImplTest" />
+        <item itemvalue="JUnit.OrderServiceImplTest" />
+        <item itemvalue="JUnit.BaseServiceImplTest" />
+        <item itemvalue="JUnit.ExpertServiceImplTest.addService_shouldThrowException_whenExpertNotFound" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="" />
+      <created>1747405001344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747405001344</updated>
+      <workItem from="1750773469967" duration="11044000" />
+      <workItem from="1750797762949" duration="3273000" />
+      <workItem from="1750843576991" duration="2973000" />
+      <workItem from="1751181935061" duration="2984000" />
+      <workItem from="1751199291668" duration="9823000" />
+      <workItem from="1751277901370" duration="24844000" />
+      <workItem from="1751354465014" duration="26319000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add base entity, service, repository, Mapper,">
+      <option name="closed" value="true" />
+      <created>1751384290392</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1751384290392</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add base entity, service, repository, Mapper,">
+      <option name="closed" value="true" />
+      <created>1751384354616</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751384354616</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add base entity, service, repository, Mapper,">
+      <option name="closed" value="true" />
+      <created>1751384367820</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751384367820</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add entities">
+      <option name="closed" value="true" />
+      <created>1751384471557</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751384471557</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add base entity, service, repository, Mapper," />
+    <MESSAGE value="Add entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add entities" />
+  </component>
+</project>
