@@ -1,9 +1,12 @@
 package ir.maktabsharif.final_project_taha_badri.service.base;
 
+import ir.maktabsharif.final_project_taha_badri.domain.dto.Identifiable;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.BaseMapper;
-import ir.maktabsharif.final_project_taha_badri.repository.base.crud.CrudRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,30 +17,32 @@ import java.util.stream.Collectors;
 public class BaseServiceImpl<
         T extends BaseEntity<ID>,
         ID,
-        R extends CrudRepository<T, ID>,
-        M extends BaseMapper<DTO, T>
-        , DTO>
+        R extends JpaRepository<T, ID>
+        , DTO extends Identifiable<ID>
+        , M extends BaseMapper<DTO, T, ID>>
         implements BaseService<T, ID, DTO> {
-
     protected final R repository;
     protected final M mapper;
 
     @Override
     public T save(DTO dto) {
         T entity = mapper.dtoToEntity(dto);
-        repository.beginTransaction();
+        setEntityRelations(entity, dto);
         repository.save(entity);
-        repository.commitTransaction();
         return entity;
     }
 
     @Override
-    public T saveOrUpdate(DTO dto) {
-        T entity = mapper.dtoToEntity(dto);
-        repository.beginTransaction();
-        entity = repository.saveAndUpdate(entity);
-        repository.commitTransaction();
-        return entity;
+    public T update(DTO dto) {
+        ID id = dto.getId();
+        T entity = findById(id);
+        mapper.updateEntityWithDTO(dto, entity);
+        setEntityRelations(entity, dto);
+        return repository.save(entity);
+
+    }
+
+    protected void setEntityRelations(T entity, DTO dto) {
     }
 
     @Override
@@ -46,11 +51,7 @@ public class BaseServiceImpl<
                 .map(mapper::dtoToEntity)
                 .collect(Collectors.toList());
 
-        repository.beginTransaction();
-        List<T> savedEntities = repository.saveAll(entities);
-        repository.commitTransaction();
-
-        return savedEntities;
+        return repository.saveAll(entities);
     }
 
 
@@ -66,27 +67,29 @@ public class BaseServiceImpl<
     }
 
     @Override
+    public List<T> findAll(int page, int size) {
+        Page<T> all = repository.findAll(PageRequest.of(page, page));
+        return all.getContent();
+    }
+
+    @Override
     public List<T> findAllById(Iterable<ID> ids) {
         return repository.findAllById(ids);
     }
 
     @Override
     public long countAll() {
-        return repository.countAll();
+        return repository.count();
     }
 
     @Override
     public void deleteById(ID id) {
-        repository.beginTransaction();
         repository.deleteById(id);
-        repository.commitTransaction();
     }
 
     @Override
     public void deleteAllById(Iterable<ID> ids) {
-        repository.beginTransaction();
         repository.deleteAllById(ids);
-        repository.commitTransaction();
     }
 
     @Override

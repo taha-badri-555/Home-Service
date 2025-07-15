@@ -10,7 +10,7 @@ public interface BaseService<T extends BaseEntity<ID>, ID, DTO> {
 
     T save(DTO dto);
 
-    T saveOrUpdate(DTO entity);
+    T update(DTO dto);
 
     List<T> saveAll(Collection<DTO> entities);
 
@@ -28,4 +28,5 @@ public interface BaseService<T extends BaseEntity<ID>, ID, DTO> {
 
     boolean existsById(ID id);
 
+    List<T> findAll(int page, int size);
 }
