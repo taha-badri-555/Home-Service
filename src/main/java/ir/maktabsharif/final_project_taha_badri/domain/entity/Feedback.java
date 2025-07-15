@@ -22,7 +22,6 @@ public class Feedback extends BaseEntity <Long>{
     public static final String RATING_COLUMN = "rating";
     public static final String FEEDBACK_COLUMN = "feedback";
 
-//MIn and Max contorole white dataBase
     @Column(name = RATING_COLUMN)
     private Byte rating;
 
@@ -30,8 +29,6 @@ public class Feedback extends BaseEntity <Long>{
     private String feedback;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Expert expert;
+    private Order order;
 
-    //    @ManyToOne <- this is better.
-//    private Order order;
 }

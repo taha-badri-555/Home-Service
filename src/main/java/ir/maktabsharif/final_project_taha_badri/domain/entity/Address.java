@@ -1,5 +1,6 @@
 package ir.maktabsharif.final_project_taha_badri.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Customer;
 import jakarta.persistence.*;
@@ -7,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Getter
 @Setter

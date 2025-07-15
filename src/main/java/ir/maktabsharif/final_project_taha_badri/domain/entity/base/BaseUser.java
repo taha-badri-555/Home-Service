@@ -30,7 +30,7 @@ public class BaseUser extends BaseEntity<Long> {
     @Column(name = LAST_NAME_COLUMN)
     private String lastName;
 
-    @Column(name = PASSWORD_COLUMN, length = 8)
+    @Column(name = PASSWORD_COLUMN)
     private String password;
 
     @Column(name = EMAIL_COLUMN)

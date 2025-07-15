@@ -28,15 +28,11 @@ public class Service extends BaseEntity<Long> {
     private String name;
 
     @Column(name = BASE_PRICE_COLUMN)
-    private Integer basePrice;
+    private Double basePrice;
 
     @Column(name = DESCRIPTION_COLUMN, columnDefinition = "VARCHAR")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Service service;
-
-
-    @ManyToMany(mappedBy = "services")
-    private List<Expert> experts;
+    private Service parentService;
 }

@@ -16,7 +16,8 @@ import java.time.ZonedDateTime;
 @Getter
 @Setter
 @Table(name = Order.TABLE_NAME)
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order extends BaseEntity<Long> {
 
     public static final String TABLE_NAME = "orders";
@@ -25,6 +26,8 @@ public class Order extends BaseEntity<Long> {
     public static final String PROPOSED_PRICE_COLUMN = "proposed_price";
     public static final String START_DATE_COLUMN = "start_date";
     public static final String ORDER_STATUS_COLUMN = "order_status";
+    public static final String FINAL_PRICE_COLUMN = "final_price";
+    public static final String END_DATE_COLUMN = "end_date";
 
 
 
@@ -32,10 +35,16 @@ public class Order extends BaseEntity<Long> {
     private String description;
 
     @Column(name = PROPOSED_PRICE_COLUMN)
-    private Integer proposedPrice;
+    private Double proposedPrice;
+
+    @Column(name = FINAL_PRICE_COLUMN)
+    private Double finalPrice;
 
     @Column(name = START_DATE_COLUMN)
     private ZonedDateTime startDate;
+
+    @Column(name = END_DATE_COLUMN)
+    private ZonedDateTime endDate;
 
     @Column(name = ORDER_STATUS_COLUMN)
     @Enumerated(EnumType.STRING)
@@ -52,25 +61,4 @@ public class Order extends BaseEntity<Long> {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Expert expert;
-
-    public Order(
-            String description,
-            Integer proposedPrice,
-            ZonedDateTime startDate,
-            Customer customer,
-            Service service,
-            Address address,
-            Expert expert) {
-        this.description = description;
-        this.proposedPrice = proposedPrice;
-        this.startDate = startDate;
-        this.orderStatus = OrderStatus.WAITING_FOR_EXPERT_TO_VISIT;
-        this.customer = customer;
-        this.service = service;
-        this.address = address;
-        this.expert = expert;
-    }
-    public Order() {
-        this.orderStatus = OrderStatus.WAITING_FOR_EXPERT_TO_VISIT;
-    }
 }
