@@ -4,4 +4,5 @@ public enum ExpertStatus {
     NEW
     ,WAITING
     ,ACCEPT
+    , CHIR_FAAL
 }
