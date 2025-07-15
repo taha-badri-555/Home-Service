@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>شارژ کیف پول</title>
+    <link rel="icon" type="image/png" href="/Pictures/cash register-64" >
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le51n4rAAAAAMwHUQXTiPtZYzoxkJGz3hd7AxR7"></script>
+    <style>
+        body {
+            direction: rtl;
+            font-family: Vazir, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            padding: 2rem;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+        input {
+            width: 100%;
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+        }
+        .card-inputs {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .card-inputs input {
+            width: 100%;
+            text-align: center;
+        }
+        .timer {
+            font-size: 1.2rem;
+            color: #e53935;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        button {
+            background-color: #00bfa5;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #009e86;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>شارژ کیف پول</h2>
+    <div class="timer" id="timer">۱۰:۰۰</div>
+    <form id="paymentForm">
+        <label>مبلغ شارژ (تومان):</label>
+        <input id="amount" type="number" name="amount" required min="0" step="100000" value="0">
+        <label>شماره کارت:</label>
+        <div class="card-inputs">
+            <input type="text" name="card1" maxlength="4" required>
+            <input type="text" name="card2" maxlength="4" required>
+            <input type="text" name="card3" maxlength="4" required>
+            <input type="text" name="card4" maxlength="4" required>
+        </div>
+        <label>CVV2:</label>
+        <input type="text" name="cvv2" maxlength="4" required>
+        <label>تاریخ انقضا (ماه/سال):</label>
+        <input type="text" name="expirationDate" placeholder="MM/YY" maxlength="5" required>
+        <label>رمز دوم (رمز پویا):</label>
+        <input type="password" name="otp" required>
+        <button type="submit">شارژ کیف پول</button>
+    </form>
+</div>
+<script>
+    let timerElement = document.getElementById('timer');
+    let timeLeft = localStorage.getItem('walletTimer');
+    if (timeLeft !== null) {
+        timeLeft = parseInt(timeLeft, 10);
+    } else {
+        timeLeft = 600;
+    }
+    const interval = setInterval(() => {
+        if (timeLeft < 0) {
+            clearInterval(interval);
+            alert("مهلت پرداخت به پایان رسید.");
+            document.querySelector("button").disabled = true;
+            localStorage.removeItem('walletTimer');
+            return;
+        }
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        localStorage.setItem('walletTimer', timeLeft);
+        timeLeft--;
+    }, 1000);
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (timeLeft <= 0) {
+            alert("مهلت پرداخت تمام شده است.");
+            return;
+        }
+        grecaptcha.execute('6Le51n4rAAAAAMwHUQXTiPtZYzoxkJGz3hd7AxR7', {action: 'submit'}).then(async function (token) {
+            const formData = new FormData(e.target);
+            const payload = {
+                amount: parseFloat(formData.get("amount")),
+                cardNumber: [
+                    formData.get("card1"),
+                    formData.get("card2"),
+                    formData.get("card3"),
+                    formData.get("card4")
+                ].join(""),
+                cvv2: formData.get("cvv2"),
+                expirationDate: formData.get("expirationDate"),
+                otp: formData.get("otp"),
+                recaptcha: token,
+                clientTimeLeft: timeLeft
+            };
+            const response = await fetch("/wallets/add-credit?", {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                credentials: "include",
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                alert("شارژ کیف پول با موفقیت انجام شد.");
+                localStorage.removeItem('walletTimer');
+            } else {
+                const error = await response.text();
+                alert("خطا در شارژ کیف پول: " + error);
+            }
+        });
+    });
+</script>
+</body>
+</html>
