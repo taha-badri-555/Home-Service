@@ -5,5 +5,7 @@ import ir.maktabsharif.final_project_taha_badri.repository.base.user.BaseUserRep
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends BaseUserRepository<Customer> {
+public interface CustomerRepository
+        extends BaseUserRepository<Customer> {
+
 }
