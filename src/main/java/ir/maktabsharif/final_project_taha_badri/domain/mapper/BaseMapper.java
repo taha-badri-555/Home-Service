@@ -1,11 +1,12 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.springframework.stereotype.Component;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
+import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface BaseMapper<DTO, T> {
+
+public interface BaseMapper<DTO, T extends BaseEntity<ID>, ID> {
     DTO entityToDto(T entity);
     T dtoToEntity(DTO dto);
+
+    void updateEntityWithDTO(DTO dto, @MappingTarget T entity);
 }
