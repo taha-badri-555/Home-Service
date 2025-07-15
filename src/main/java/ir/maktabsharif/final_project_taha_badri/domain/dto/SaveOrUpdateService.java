@@ -1,34 +1,31 @@
 package ir.maktabsharif.final_project_taha_badri.domain.dto;
 
-import ir.maktabsharif.final_project_taha_badri.domain.entity.Service;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Expert;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 
-import java.util.List;
-
 public record SaveOrUpdateService(
 
         @NotNull(groups = ValidationGroup.Update.class,message = "id is null.")
-        @Null(groups = ValidationGroup.Save.class,message = "id is not null.")
+        @Null(groups = ValidationGroup.Save.class, message = "id must be null.")
         Long id,
 
-        @NotBlank(message = "name is blank.")
+        @NotBlank(message = "name is blank."
+                ,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         String name,
 
-        @Min(0)
-        Integer basePrice,
+        @Min(value = 0,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
+        Double basePrice,
 
         @NotBlank(message = "description is blank.")
         String description,
 
 
-        Service service,
-
-
-        List<Expert> experts
-
-) {
+        Long serviceId
+)implements Identifiable<Long> {
+        @Override
+        public Long getId() {
+                return id;
+        }
 }
