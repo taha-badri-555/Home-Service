@@ -1,16 +1,18 @@
 package ir.maktabsharif.final_project_taha_badri.service.user.user;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.*;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseUser;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.*;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.UserRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.UserResponse;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.base.Person;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
+public interface UserService extends BaseService<Person, Long, UserRequest, UserResponse> {
 
-public interface UserService extends BaseService<BaseUser, Long, SaveOrUpdateUser> {
+     Page<UserResponse> searchUsers(SearchRequest request, Pageable pageable);
 
-    public List<BaseUser> searchUsers(SearchRequest request);
-
-    BaseUser findByEmailAndPassword(LoginRequest loginRequest);
+    UserRequest findByEmailAndPassword(LoginRequest loginRequest);
 
     boolean existsByEmail(EmailRequest emailRequest);
 
@@ -18,4 +20,5 @@ public interface UserService extends BaseService<BaseUser, Long, SaveOrUpdateUse
 
     boolean existsByEmailAndId(EmailAndIdRequest emailAndIdRequest);
 
+    Person findByEmail(String email);
 }

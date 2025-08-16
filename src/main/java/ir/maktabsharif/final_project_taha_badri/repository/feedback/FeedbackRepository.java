@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface FeedbackRepository extends
         JpaRepository<Feedback, Long>, JpaSpecificationExecutor<Feedback> {
@@ -30,4 +32,11 @@ public interface FeedbackRepository extends
             SELECT SUM (f.rating) FROM Feedback f
             """)
     Long getAllScoreByExpertId(Long expertId);
+
+    @Query(
+            """
+select f from Feedback f where f.order.id= :orderId
+                    """
+    )
+    Optional<Feedback> findByOrder_Id(@Param("orderId") Long orderId);
 }

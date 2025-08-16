@@ -1,0 +1,13 @@
+change Integer to bigDecimal
+change name Service_service
+
+@OneToMany(mappedBy = "customer")
+private List<Address> addresses;
+
+write register.
+
+in dto use dto
+
+jpa method naming
+
+convention

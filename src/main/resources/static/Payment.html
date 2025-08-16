@@ -142,7 +142,7 @@
                 recaptcha: token,
                 clientTimeLeft: timeLeft
             };
-            const response = await fetch("/wallets/add-credit?", {
+            const response = await fetch("/wallets/add-credit", {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 credentials: "include",

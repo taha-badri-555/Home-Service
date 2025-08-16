@@ -1,32 +1,34 @@
 package ir.maktabsharif.final_project_taha_badri.service.proposal;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.OrderRequest;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateProposal;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.OrderResponse;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.ProposalRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.ProposalResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Proposal;
 import ir.maktabsharif.final_project_taha_badri.domain.enums.ProposalStatus;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 
-public interface ProposalService extends BaseService<Proposal,Long, SaveOrUpdateProposal> {
-    List<Proposal> findByOrderIdOrderBySuggestPrice(Long orderId);
+public interface ProposalService extends BaseService<Proposal, Long, ProposalRequest, ProposalResponse> {
+    ProposalResponse save(Long ExpertId, ProposalRequest dto);
+
+    Page<ProposalResponse> findByOrderIdOrderBySuggestPrice(Long customerId, Long orderId, Pageable pageable);
 
     void setOrderWithProposal(Long proposalId);
 
-    void setOrderStatusToStartedByProposalId(Long proposalId);
+    void setOrderStatusToStartedByProposalId(Long customerId, Long orderId);
 
-    Proposal save(SaveOrUpdateProposal saveOrUpdateProposal, Long expertId);
+    ProposalResponse save(ProposalRequest proposalDTO);
 
-    List<Proposal> findByOrderIdOrderByExpertScoreDesc(Long orderId);
+    Page<ProposalResponse> findByOrderIdOrderByExpertScoreDesc(Long customerId, Long orderId, Pageable pageable);
 
     void changeAllProposalStatusByOrderId(@Param("orderId") Long orderId, @Param("status") ProposalStatus status);
 
     void changeStatusById(@Param("proposalId") Long proposalId, @Param("status") ProposalStatus status);
 
-    void chooseProposal(Long proposalId, Long orderId);
+    void chooseProposal(Long customerId, Long proposalId, Long orderId);
 
-    List<OrderRequest> findAllOrdersByExpert_Id(Long expertId);
+    Page<OrderResponse> findAllOrdersByExpert_Id(Long expertId, Pageable pageable);
 }

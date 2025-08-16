@@ -1,21 +1,40 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateProposal;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.ProposalRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.ProposalResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Proposal;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface ProposalMapper extends BaseMapper<SaveOrUpdateProposal, Proposal,Long> {
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        unmappedSourcePolicy = ReportingPolicy.IGNORE)
+public interface ProposalMapper extends BaseMapper<ProposalRequest, ProposalResponse, Proposal, Long> {
+
+
+//    @Mapping(target = "expert", ignore = true)
+
+    /// /    @Mapping(target = "order", ignore = true)
     @Override
-    void updateEntityWithDTO(SaveOrUpdateProposal saveOrUpdateProposal, @MappingTarget Proposal entity);
+    Proposal requestToEntity(ProposalRequest dto);
+
+
+    //    @Mapping(target = "expertId", ignore = true)
+//    @Mapping(target = "orderId", ignore = true)
 
     @Override
-    Proposal dtoToEntity(SaveOrUpdateProposal saveOrUpdateProposal);
+    @Mapping(source = "order.id", target = "orderId")
+    ProposalRequest entityToRequest(Proposal entity);
+
+
+    //    @Mapping(target = "expert", ignore = true)
+//    @Mapping(target = "order", ignore = true)
+    @Override
+    void updateEntityWithRequest(ProposalRequest dto, @MappingTarget Proposal entity);
 
     @Override
-    SaveOrUpdateProposal entityToDto(Proposal entity);
+    Proposal responseToEntity(ProposalResponse dto);
+
+    @Override
+    @Mapping(source = "order.id", target = "orderId")
+    ProposalResponse entityToResponse(Proposal entity);
 }

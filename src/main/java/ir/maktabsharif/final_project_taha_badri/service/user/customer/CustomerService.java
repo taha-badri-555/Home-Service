@@ -1,14 +1,19 @@
 package ir.maktabsharif.final_project_taha_badri.service.user.customer;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateAddress;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.SaveOrUpdateCustomer;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.AddressRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.CustomerRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.CustomerResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Customer;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseService;
-import org.springframework.stereotype.Service;
 
-public interface CustomerService extends BaseService<Customer,Long, SaveOrUpdateCustomer> {
-    Customer register(SaveOrUpdateCustomer dto);
+public interface CustomerService extends BaseService<Customer, Long, CustomerRequest, CustomerResponse> {
 
-    void addAddressToCustomer( SaveOrUpdateAddress dto);
+    Customer save(Customer customer);
+
+    CustomerResponse register(CustomerRequest dto);
+
+    CustomerResponse update(Long customerID, CustomerRequest dto);
+
+    void addAddressToCustomer(AddressRequest dto);
 
 }

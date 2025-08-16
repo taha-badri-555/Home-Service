@@ -1,0 +1,5 @@
+Page<Order> findAllOrderByExpertId(Long expertId,Pageable pageable);
+
+customer.setPassword(passwordEncoder.encode(request.getPassword()));
+
+Page<Transaction> findByCustomerIdOrExpertId(Long customerId, Long expertId, Pageable pageable);

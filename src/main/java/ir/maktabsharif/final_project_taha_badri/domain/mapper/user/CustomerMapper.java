@@ -1,24 +1,25 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper.user;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.CustomerUpdate;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.SaveOrUpdateCustomer;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.CustomerRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.CustomerResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Customer;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.BaseMapper;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface CustomerMapper extends BaseMapper<SaveOrUpdateCustomer, Customer, Long> {
-    @Override
-    SaveOrUpdateCustomer entityToDto(Customer entity);
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface CustomerMapper extends BaseMapper<CustomerRequest, CustomerResponse, Customer, Long> {
 
     @Override
-    Customer dtoToEntity(SaveOrUpdateCustomer dto);
+    CustomerRequest entityToRequest(Customer entity);
 
     @Override
-    void updateEntityWithDTO(SaveOrUpdateCustomer saveOrUpdateCustomer, @MappingTarget Customer entity);
+    void updateEntityWithRequest(CustomerRequest dto,@MappingTarget Customer entity);
 
-    void updateEntityWithDTO(CustomerUpdate dto, @MappingTarget Customer entity);
+    @Override
+    Customer responseToEntity(CustomerResponse dto);
+
+    @Override
+    CustomerResponse entityToResponse(Customer entity);
 }

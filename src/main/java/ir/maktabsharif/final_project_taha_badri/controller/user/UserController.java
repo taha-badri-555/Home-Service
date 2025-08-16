@@ -3,65 +3,66 @@ package ir.maktabsharif.final_project_taha_badri.controller.user;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.ValidationGroup;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.*;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseUser;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.EmailAndIdRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.EmailRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.SearchRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.UserRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.UserResponse;
 import ir.maktabsharif.final_project_taha_badri.service.user.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/v1/users")
 @RequiredArgsConstructor
 @Tag(name = "UserController", description = "Controller for BaseUser operations.")
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/save")
+    @PostMapping
     @Operation(summary = "save user", description = "create a new user.")
-    public ResponseEntity<BaseUser> saveUser(
-            @RequestBody @Validated(ValidationGroup.Save.class) SaveOrUpdateUser dto) {
+    public ResponseEntity<UserResponse> saveUser(
+            @RequestBody @Validated(ValidationGroup.Save.class) UserRequest dto) {
         return ResponseEntity.ok(userService.save(dto));
     }
 
-    @PutMapping("/update")
+    @PutMapping
     @Operation(summary = "update user", description = "update an existing user.")
-    public ResponseEntity<BaseUser> updateUser(
-            @RequestBody @Validated(ValidationGroup.Update.class) SaveOrUpdateUser dto) {
+    public ResponseEntity<UserResponse> updateUser(
+            @RequestBody @Validated(ValidationGroup.Update.class) UserRequest dto) {
         return ResponseEntity.ok(userService.update(dto));
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("{id}")
     @Operation(summary = "delete user", description = "delete a user by its id.")
-    public ResponseEntity<String> deleteUser(@RequestParam Long id) {
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteById(id);
         return ResponseEntity.ok("Deleted user with id " + id);
     }
 
-    @GetMapping("/find-by-id")
+    @GetMapping("{id}")
     @Operation(summary = "find user by id", description = "retrieve a user by its id.")
-    public ResponseEntity<BaseUser> findById(@RequestParam Long id) {
-        return ResponseEntity.ok(userService.findById(id));
+    public ResponseEntity<UserResponse> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getResponseById(id));
     }
 
-    @GetMapping("/find-all")
+    @GetMapping("/all")
     @Operation(summary = "find all users", description = "list all users with pagination.")
-    public ResponseEntity<List<BaseUser>> findAll(
+    public ResponseEntity<Page<UserResponse>> findAll(
             @RequestParam int page,
             @RequestParam int size) {
-        return ResponseEntity.ok(userService.findAll(page, size));
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(userService.findAll(pageable));
     }
 
-    @PostMapping("/login")
-    @Operation(summary = "login user", description = "authenticate a user by email and password.")
-    public ResponseEntity<BaseUser> login(
-            @RequestBody LoginRequest request) {
-        return ResponseEntity.ok(userService.findByEmailAndPassword(request));
-    }
 
     @GetMapping("/exists-by-email")
     @Operation(summary = "check email existence", description = "check if an email is already used.")
@@ -75,7 +76,7 @@ public class UserController {
     public ResponseEntity<Boolean> existsByEmailAndIdNot(
             @RequestParam String email,
             @RequestParam Long id) {
-        return ResponseEntity.ok(userService.existsByEmailAndIdNot(new EmailAndIdRequest(id,email)));
+        return ResponseEntity.ok(userService.existsByEmailAndIdNot(new EmailAndIdRequest(id, email)));
     }
 
     @GetMapping("/exists-by-email-and-id")
@@ -83,13 +84,17 @@ public class UserController {
     public ResponseEntity<Boolean> existsByEmailAndId(
             @RequestParam String email,
             @RequestParam Long id) {
-        return ResponseEntity.ok(userService.existsByEmailAndId(new EmailAndIdRequest(id,email)));
+        return ResponseEntity.ok(userService.existsByEmailAndId(new EmailAndIdRequest(id, email)));
     }
 
-    @PostMapping("/search")
+    @GetMapping("/search")
+    @PreAuthorize("hasAnyRole('MANAGER')")
     @Operation(summary = "search users", description = "search users by various criteria.")
-    public ResponseEntity<List<BaseUser>> searchUsers(
-            @RequestBody SearchRequest request) {
-        return ResponseEntity.ok(userService.searchUsers(request));
+    public ResponseEntity<Page<UserResponse>> searchUsers(
+            @RequestBody @Valid SearchRequest request,
+            @RequestParam int page,
+            @RequestParam int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(userService.searchUsers(request, pageable));
     }
 }

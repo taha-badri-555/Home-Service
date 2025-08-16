@@ -1,58 +1,66 @@
 package ir.maktabsharif.final_project_taha_badri.service.user.expert;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateWallet;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.EmailRequest;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.SaveOrUpdateExpert;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.WalletRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.ChangeImagePatch;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.EmailRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.ExpertRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.ExpertResponse;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.Service;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Expert;
 import ir.maktabsharif.final_project_taha_badri.domain.enums.ExpertStatus;
 import ir.maktabsharif.final_project_taha_badri.domain.enums.OrderStatus;
+import ir.maktabsharif.final_project_taha_badri.domain.enums.Role;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.user.ExpertMapper;
 import ir.maktabsharif.final_project_taha_badri.exception.ExpertUpdateBlockedDueToActiveOrdersException;
 import ir.maktabsharif.final_project_taha_badri.exception.ImageLengthOutOfBoundException;
 import ir.maktabsharif.final_project_taha_badri.exception.UserWithSameEmailExistsException;
 import ir.maktabsharif.final_project_taha_badri.repository.user.expert.ExpertRepository;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseServiceImpl;
+import ir.maktabsharif.final_project_taha_badri.service.email.EmailService;
 import ir.maktabsharif.final_project_taha_badri.service.home_service.ServiceService;
 import ir.maktabsharif.final_project_taha_badri.service.order.OrderService;
 import ir.maktabsharif.final_project_taha_badri.service.user.user.UserService;
 import ir.maktabsharif.final_project_taha_badri.service.wallet.WalletService;
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 
-@Service
+@org.springframework.stereotype.Service
 @Transactional
 public class ExpertServiceImpl
         extends BaseServiceImpl<
         Expert,
         Long,
         ExpertRepository,
-        SaveOrUpdateExpert
-        , ExpertMapper>
+        ExpertRequest,
+        ExpertResponse,
+        ExpertMapper>
         implements ExpertService {
+    private final PasswordEncoder passwordEncoder;
     private final UserService userService;
     private final ServiceService serviceService;
     private final WalletService walletService;
     private final OrderService orderService;
+    private final EmailService emailService;
 
     public ExpertServiceImpl(
             ExpertRepository repository,
-            ExpertMapper mapper, UserService userService,
+            ExpertMapper mapper, PasswordEncoder passwordEncoder, UserService userService,
             ServiceService serviceService, WalletService walletService,
-            @Lazy OrderService orderService) {
+            @Lazy OrderService orderService, @Lazy EmailService emailService) {
         super(repository, mapper);
+        this.passwordEncoder = passwordEncoder;
         this.userService = userService;
         this.serviceService = serviceService;
         this.walletService = walletService;
         this.orderService = orderService;
+        this.emailService = emailService;
     }
 
     @Override
@@ -61,9 +69,12 @@ public class ExpertServiceImpl
     }
 
     @Override
-    public List<Expert> findAllWaitingExpertStatus() {
-        return repository.findAllWaitingExpertStatus();
+    public Page<ExpertResponse> findAllWaitingExpertStatus(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Expert> expertPage = repository.findAllWaitingExpertStatus(pageable);
+        return expertPage.map(mapper::entityToResponse);
     }
+
 
     @Override
     public void addService(Long expertId, Long serviceId) {
@@ -86,61 +97,102 @@ public class ExpertServiceImpl
 
     }
 
+    @Transactional
     @Override
-    public Expert register(SaveOrUpdateExpert expertDto) {
-        Expert expert = mapper.dtoToEntity(expertDto);
-        if (expert.getImagePath() != null) {
-            byte[] image = getBytesForExpert(expert.getImagePath());
+    public ExpertResponse register(ExpertRequest expertRequest) {
+        Expert expert = mapper.requestToEntity(expertRequest);
+        expert.setRole(Role.EXPERT);
+        if (expertRequest.image() != null) {
+            byte[] image = expertRequest.image();
             if (image.length > 300_000) {
                 throw new ImageLengthOutOfBoundException();
             }
-            expert.setStatus(ExpertStatus.WAITING);
-        } else {
-            expert.setStatus(ExpertStatus.NEW);
+            expert.setImage(expertRequest.image());
+
         }
-        if (userService.existsByEmail(new EmailRequest(expertDto.email()))) {
+        expert.setStatus(ExpertStatus.NEW);
+
+        if (userService.existsByEmail(new EmailRequest(expertRequest.email()))) {
             throw new UserWithSameEmailExistsException();
         }
 
-        expert.setEmail(expertDto.email());
-        walletService.save(new SaveOrUpdateWallet(null, 0D, expert.getId()));
-        return repository.save(expert);
+        expert.setEmail(expertRequest.email());
+        expert.setAvgScore(0D);
+        expert.setPassword(passwordEncoder.encode(expertRequest.password()));
+        expert.setImage(expertRequest.image());
+        expert.setScore(0D);
+        Expert save = repository.save(expert);
+
+        emailService.createAndSendVerificationMail(expert);
+        walletService.save(new WalletRequest(null, 0D, save.getId()));
+
+        return mapper.entityToResponse(save);
+
     }
 
     @Override
-    public Expert update(SaveOrUpdateExpert dto) {
-        Expert expert = findById(dto.id());
-        List<OrderStatus> statuses =
-                List.of(OrderStatus.WAITING_FOR_EXPERT_TO_VISIT, OrderStatus.STARTED);
-        boolean busy = orderService.existsByExpertIdtAndOrderStatusIn(expert.getId(), statuses);
-        if (busy) {
-            throw new ExpertUpdateBlockedDueToActiveOrdersException(
-                    "Expert " + expert.getEmail() + " has " + " active order(s)."
-            );
-        }
-        byte[] image = getBytesForExpert(expert.getImagePath());
-        if (image.length > 300_000) {
-            throw new ImageLengthOutOfBoundException();
-        }
-        mapper.updateEntityWithDTO(dto, expert);
-        expert.setStatus(ExpertStatus.WAITING);
-        return repository.save(expert);
-    }
-
-    @Override
-    public boolean existsByServices(Set<ir.maktabsharif.final_project_taha_badri.domain.entity.Service> services) {
+    public boolean existsByServices(Set<Service> services) {
         return repository.existsByServices(services);
     }
 
-    private byte[] getBytesForExpert(String imagePath) {
-        String normalizedPath = imagePath.replace("\\", File.separator);
-        byte[] imageBytes;
-        try {
-            imageBytes = Files.readAllBytes(Paths.get(normalizedPath));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    @Transactional
+    @Override
+    public ExpertResponse update(Long expertId, ExpertRequest dto) {
+        byte[] path = dto.image();
+        Expert expert = findById(expertId);
+        List<OrderStatus> statuses =
+                List.of(OrderStatus.WAITING_FOR_EXPERT_TO_VISIT, OrderStatus.STARTED);
+        boolean busy = orderService.existsByExpertIdtAndOrderStatusIn(expert.getId(), statuses);
+        if (dto.avgScore() != null || dto.status() != null
+                && dto.image() == null
+                && dto.email() == null
+                && dto.password() == null) {
+            if (dto.avgScore() != null) {
+                expert.setAvgScore(dto.avgScore());
+                repository.save(expert);
+            }
+            if (dto.status() != null) {
+                expert.setStatus(dto.status());
+                repository.save(expert);
+            } else {
+
+                if (busy) {
+                    throw new ExpertUpdateBlockedDueToActiveOrdersException(
+                            "Expert " + expert.getEmail() + " has " + " active order(s)."
+                    );
+                }
+                expert.setStatus(ExpertStatus.WAITING);
+            }
         }
 
-        return imageBytes;
+        mapper.updateEntityWithRequest(dto, expert);
+        expert.setImage(path);
+        if (dto.password() != null) {
+            expert.setPassword(passwordEncoder.encode(dto.password()));
+        }
+        Expert save = repository.save(expert);
+        return mapper.entityToResponse(save);
     }
+
+    @Transactional
+    @Override
+    public ExpertResponse changeImage(Long expertId, ChangeImagePatch dto) {
+        Expert expert = findById(expertId);
+        List<OrderStatus> statuses = List.of(OrderStatus.WAITING_FOR_EXPERT_TO_VISIT, OrderStatus.STARTED);
+        boolean busy = orderService.existsByExpertIdtAndOrderStatusIn(expert.getId(), statuses);
+        if (busy) {
+            throw new ExpertUpdateBlockedDueToActiveOrdersException(
+                    "Expert " + expert.getEmail() + " has active order(s)."
+            );
+        }
+        if (expert.getImage() != null && expert.isVerified() == true) {
+            expert.setStatus(ExpertStatus.WAITING);
+        }
+
+        expert.setImage(dto.image());
+
+        return mapper.entityToResponse(repository.save(expert));
+    }
+
+
 }

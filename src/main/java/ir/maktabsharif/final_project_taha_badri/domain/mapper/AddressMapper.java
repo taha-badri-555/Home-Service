@@ -1,21 +1,32 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateAddress;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.AddressRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.AddressResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Address;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface AddressMapper extends BaseMapper<SaveOrUpdateAddress, Address, Long> {
-    @Override
-    SaveOrUpdateAddress entityToDto(Address entity);
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface AddressMapper extends BaseMapper<AddressRequest, AddressResponse, Address, Long> {
+
 
     @Override
-    Address dtoToEntity(SaveOrUpdateAddress dto);
+    Address requestToEntity(AddressRequest dto);
+
+    //    @Mapping(target = "customerId", ignore = true)
+    @Mapping(source = "customer.id", target = "customerId")
+    @Override
+    AddressRequest entityToRequest(Address entity);
+
+    //    @Mapping(target = "customer", ignore = true)
+    @Override
+    void updateEntityWithRequest(AddressRequest dto, @MappingTarget Address entity);
 
     @Override
-    void updateEntityWithDTO(SaveOrUpdateAddress dto, @MappingTarget Address entity);
+    Address responseToEntity(AddressResponse dto);
+
+    @Mapping(source = "customer.id", target = "customerId")
+    @Override
+    AddressResponse entityToResponse(Address entity);
 }

@@ -15,5 +15,5 @@ public interface AddressRepository
 @Query("""
         update Address a  set a.customer=:customer where a.id=:addressId
         """)
-    void addAddressToCustomerAddressesByCustomerIdAndAddress(Customer customer, Long addressId);
+    void addAddressToCustomer(Customer customer, Long addressId);
 }

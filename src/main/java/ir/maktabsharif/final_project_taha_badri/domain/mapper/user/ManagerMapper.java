@@ -1,22 +1,28 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper.user;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.SaveOrUpdateManager;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.ManagerRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.ManagerResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Manager;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.BaseMapper;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface ManagerMapper extends BaseMapper<SaveOrUpdateManager, Manager,Long> {
-    @Override
-    SaveOrUpdateManager entityToDto(Manager entity);
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        unmappedSourcePolicy = ReportingPolicy.IGNORE)
+public interface ManagerMapper extends BaseMapper<ManagerRequest, ManagerResponse, Manager, Long> {
 
     @Override
-    Manager dtoToEntity(SaveOrUpdateManager saveOrUpdateManager);
+    Manager requestToEntity(ManagerRequest dto);
 
     @Override
-    void updateEntityWithDTO(SaveOrUpdateManager saveOrUpdateManager, @MappingTarget Manager entity);
+    ManagerRequest entityToRequest(Manager entity);
+
+    @Override
+    void updateEntityWithRequest(ManagerRequest dto, @MappingTarget Manager entity);
+
+    @Override
+    Manager responseToEntity(ManagerResponse dto);
+
+    @Override
+    ManagerResponse entityToResponse(Manager entity);
 }

@@ -1,20 +1,22 @@
 package ir.maktabsharif.final_project_taha_badri.service.home_service;
 
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateService;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.ServiceRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.ServiceResponse;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.Service;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseService;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface ServiceService
         extends BaseService
-        <ir.maktabsharif.final_project_taha_badri.domain.entity.Service, Long, SaveOrUpdateService> {
+        <ir.maktabsharif.final_project_taha_badri.domain.entity.Service, Long, ServiceRequest, ServiceResponse> {
 
-    List<ir.maktabsharif.final_project_taha_badri.domain.entity.Service>
-    getAllParenService();
+    Page<ServiceResponse> getAllParentServices(Pageable pageable) ;
 
-    List<ir.maktabsharif.final_project_taha_badri.domain.entity.Service>
-    getAllChildServiceByParentId(Long parentId);
+
+
+    Page<ServiceResponse>
+    getAllChildServiceByParentId(Long parentId,Pageable pageable);
 }

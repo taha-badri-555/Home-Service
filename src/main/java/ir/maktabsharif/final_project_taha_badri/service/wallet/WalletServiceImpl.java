@@ -1,9 +1,10 @@
 package ir.maktabsharif.final_project_taha_badri.service.wallet;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateFeedback;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateOrder;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateTransaction;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateWallet;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.FeedbackRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.OrderRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.TransactionRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.WalletRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.WalletResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Order;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Wallet;
 import ir.maktabsharif.final_project_taha_badri.domain.enums.OrderStatus;
@@ -20,13 +21,17 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+
 @Service
+@Transactional
 public class WalletServiceImpl
         extends BaseServiceImpl<
         Wallet,
         Long,
         WalletRepository,
-        SaveOrUpdateWallet,
+        WalletRequest,
+        WalletResponse,
         WalletMapper>
         implements WalletService {
     private final OrderService orderService;
@@ -49,7 +54,7 @@ public class WalletServiceImpl
 
     @Transactional
     @Override
-    protected void setEntityRelations(Wallet entity, SaveOrUpdateWallet dto) {
+    protected void setEntityRelations(Wallet entity, WalletRequest dto) {
         if (dto.userId() != null) {
             entity.setUser(userService.findById(dto.userId()));
         }
@@ -59,11 +64,11 @@ public class WalletServiceImpl
     @Transactional
     @Override
     public void addCreditToWallet(Double credit, Long userId) {
-        Wallet wallet = findByUser_Id(userId);
+        Wallet wallet = mapper.responseToEntity(findByUser_Id(userId));
         wallet.setAmount(wallet.getAmount() + credit);
         repository.save(wallet);
-        SaveOrUpdateTransaction transaction =
-                new SaveOrUpdateTransaction(
+        TransactionRequest transaction =
+                new TransactionRequest(
                         null,
                         wallet.getAmount() + credit, userId,
                         null,
@@ -73,17 +78,21 @@ public class WalletServiceImpl
 
     @Transactional
     @Override
-    public Wallet payFromWallet(Long orderId, SaveOrUpdateFeedback feedback) {
-        Order order = orderService.findById(orderId);
-        Wallet customerWallet = findByUser_Id(order.getCustomer().getId());
-        Wallet expertWallet = findByUser_Id(order.getExpert().getId());
+    public WalletResponse payFromWallet(Long customerId, FeedbackRequest feedback) {
+        Long id = orderService.findById(feedback.orderId()).getCustomer().getId();
+        if (!Objects.equals(customerId, id)) {
+            throw new IllegalArgumentException("this order is not for the customer with id: " + customerId);
+        }
+        Order order = orderService.findById(feedback.orderId());
+        Wallet customerWallet = mapper.responseToEntity(findByUser_Id(order.getCustomer().getId()));
+        Wallet expertWallet = mapper.responseToEntity(findByUser_Id(order.getExpert().getId()));
         Double price = order.getFinalPrice();
-        if (customerWallet.getAmount() < price) {
+        if (customerWallet == null || customerWallet.getAmount() == null || customerWallet.getAmount() < price) {
             transactionService.save(
-                    new SaveOrUpdateTransaction(
+                    new TransactionRequest(
                             null,
                             expertWallet.getAmount(),
-                            orderId,
+                            feedback.orderId(),
                             expertWallet.getUser().getId(),
                             TransactionalStatus.CANCELED)
 
@@ -94,26 +103,32 @@ public class WalletServiceImpl
         Double expertNewBalance = expertWallet.getAmount() + (price * 0.7);
         customerWallet.setAmount(customerNewBalance);
         expertWallet.setAmount(expertNewBalance);
-        orderService.update(new SaveOrUpdateOrder(order.getId(), OrderStatus.PAYED));
+        orderService.update(new OrderRequest(order.getId(), OrderStatus.PAYED));
         repository.save(customerWallet);
         repository.save(expertWallet);
         transactionService.save(
-                new SaveOrUpdateTransaction(
+                new TransactionRequest(
                         null,
                         expertWallet.getAmount(),
-                        orderId,
+                        feedback.orderId(),
                         expertWallet.getUser().getId(),
                         TransactionalStatus.COMPLETED)
 
         );
         feedbackService.save(feedback);
-        return customerWallet;
+        return mapper.entityToResponse(customerWallet);
 
     }
 
     @Transactional(readOnly = true)
     @Override
-    public Wallet findByUser_Id(Long userId) {
-        return repository.findByUser_Id(userId);
+    public WalletResponse findByUser_Id(Long userId) {
+        return mapper.entityToResponse(repository.findByUser_Id(userId));
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Double getAmount(Long userId) {
+        return repository.getAmount(userId);
     }
 }

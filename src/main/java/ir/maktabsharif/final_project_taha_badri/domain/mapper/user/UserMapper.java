@@ -1,22 +1,28 @@
 package ir.maktabsharif.final_project_taha_badri.domain.mapper.user;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.user.SaveOrUpdateUser;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseUser;
+
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.UserRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.UserResponse;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.base.Person;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.BaseMapper;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface UserMapper extends BaseMapper<SaveOrUpdateUser, BaseUser,Long> {
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        unmappedSourcePolicy = ReportingPolicy.IGNORE)
+public interface UserMapper extends BaseMapper<UserRequest, UserResponse, Person,Long> {
     @Override
-    SaveOrUpdateUser entityToDto(BaseUser entity);
+    UserRequest entityToRequest(Person entity);
 
     @Override
-    BaseUser dtoToEntity(SaveOrUpdateUser saveOrUpdateUser);
+    Person requestToEntity(UserRequest dto);
 
     @Override
-    void updateEntityWithDTO(SaveOrUpdateUser saveOrUpdateUser, @MappingTarget BaseUser entity);
+    void updateEntityWithRequest(UserRequest dto,@MappingTarget Person entity);
+
+    @Override
+    Person responseToEntity(UserResponse dto);
+
+    @Override
+    UserResponse entityToResponse(Person entity);
 }

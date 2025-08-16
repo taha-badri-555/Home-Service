@@ -4,8 +4,10 @@ import ir.maktabsharif.final_project_taha_badri.domain.dto.Identifiable;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.BaseMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
@@ -14,67 +16,98 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
+@SuperBuilder
 public class BaseServiceImpl<
         T extends BaseEntity<ID>,
         ID,
-        R extends JpaRepository<T, ID>
-        , DTO extends Identifiable<ID>
-        , M extends BaseMapper<DTO, T, ID>>
-        implements BaseService<T, ID, DTO> {
+        R extends JpaRepository<T, ID>,
+        REQUEST extends Identifiable<ID>,
+        RESPONSE extends Identifiable<ID>,
+        M extends BaseMapper<REQUEST, RESPONSE, T, ID>>
+        implements BaseService<T, ID, REQUEST, RESPONSE> {
     protected final R repository;
     protected final M mapper;
 
     @Override
-    public T save(DTO dto) {
-        T entity = mapper.dtoToEntity(dto);
+    public RESPONSE save(REQUEST dto) {
+        T entity = mapper.requestToEntity(dto);
         setEntityRelations(entity, dto);
         repository.save(entity);
-        return entity;
+        return mapper.entityToResponse(entity);
     }
 
     @Override
-    public T update(DTO dto) {
+    public RESPONSE update(REQUEST dto) {
         ID id = dto.getId();
         T entity = findById(id);
-        mapper.updateEntityWithDTO(dto, entity);
-        setEntityRelations(entity, dto);
-        return repository.save(entity);
 
+        mapper.updateEntityWithRequest(dto, entity);
+        setEntityRelations(entity, dto);
+
+        repository.save(entity);
+
+        return mapper.entityToResponse(entity);
     }
 
-    protected void setEntityRelations(T entity, DTO dto) {
+
+    protected void setEntityRelations(T entity, REQUEST dto) {
     }
 
     @Override
-    public List<T> saveAll(Collection<DTO> dtos) {
+    public Page<RESPONSE> saveAll(Collection<REQUEST> dtos) {
         List<T> entities = dtos.stream()
-                .map(mapper::dtoToEntity)
+                .map(dto -> {
+                    T entity = mapper.requestToEntity(dto);
+                    setEntityRelations(entity, dto);
+                    return entity;
+                })
                 .collect(Collectors.toList());
 
-        return repository.saveAll(entities);
+        List<T> savedEntities = repository.saveAll(entities);
+
+        List<RESPONSE> dtoList = savedEntities.stream()
+                .map(mapper::entityToResponse)
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(dtoList);
     }
 
 
     @Override
     public T findById(ID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Entity not found with id: " + id));
+                .orElseThrow(() -> new NoSuchElementException(getClass() + " not found with id: " + id));
+
     }
 
     @Override
-    public List<T> findAll() {
-        return repository.findAll();
+
+    public RESPONSE getResponseById(ID id) {
+        return mapper.entityToResponse(repository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException(getClass() + " not found with id: " + id)));
     }
 
     @Override
-    public List<T> findAll(int page, int size) {
-        Page<T> all = repository.findAll(PageRequest.of(page, page));
-        return all.getContent();
+    public List<RESPONSE> findAll() {
+        List<T> all = repository.findAll();
+        return all.stream()
+                .map(mapper::entityToResponse).toList();
     }
 
     @Override
-    public List<T> findAllById(Iterable<ID> ids) {
-        return repository.findAllById(ids);
+    public Page<RESPONSE> findAll(Pageable pageable) {
+        Page<T> entityPage = repository.findAll(pageable);
+        return entityPage.map(mapper::entityToResponse);
+    }
+
+
+    @Override
+    public List<RESPONSE> findAllById(Iterable<ID> ids) {
+        List<T> allById = repository.findAllById(ids);
+        List<RESPONSE> dtos = allById.stream()
+                .map(mapper::entityToResponse)
+                .collect(Collectors.toList());
+        return dtos;
     }
 
     @Override
@@ -96,5 +129,12 @@ public class BaseServiceImpl<
     public boolean existsById(ID id) {
         return repository.existsById(id);
     }
+
+    private RESPONSE apply(T entity) {
+        RESPONSE dto = mapper.entityToResponse(entity);
+        return dto;
+    }
+
+
 }
 

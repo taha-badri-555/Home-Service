@@ -1,16 +1,18 @@
 package ir.maktabsharif.final_project_taha_badri.service.wallet;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateFeedback;
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateWallet;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.FeedbackRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.WalletRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.WalletResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Wallet;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseService;
-import org.springframework.stereotype.Service;
 
-public interface WalletService extends BaseService<Wallet, Long, SaveOrUpdateWallet> {
+public interface WalletService extends BaseService<Wallet, Long, WalletRequest, WalletResponse> {
     void addCreditToWallet(Double credit, Long userId);
 
-    Wallet payFromWallet(Long orderId, SaveOrUpdateFeedback feedback);
+    WalletResponse payFromWallet(Long customerId, FeedbackRequest feedback);
 
-    Wallet findByUser_Id(Long userId);
+    WalletResponse findByUser_Id(Long userId);
+
+    Double getAmount(Long userId);
 
 }

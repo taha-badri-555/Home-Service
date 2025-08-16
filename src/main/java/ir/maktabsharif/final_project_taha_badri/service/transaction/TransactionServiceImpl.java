@@ -1,6 +1,7 @@
 package ir.maktabsharif.final_project_taha_badri.service.transaction;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.SaveOrUpdateTransaction;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.TransactionRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.response.TransactionResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Transaction;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.TransactionMapper;
 import ir.maktabsharif.final_project_taha_badri.repository.transaction.TransactionRepository;
@@ -9,9 +10,9 @@ import ir.maktabsharif.final_project_taha_badri.service.user.customer.CustomerSe
 import ir.maktabsharif.final_project_taha_badri.service.user.expert.ExpertService;
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -21,7 +22,8 @@ public class TransactionServiceImpl
         Transaction,
         Long,
         TransactionRepository,
-        SaveOrUpdateTransaction,
+        TransactionRequest,
+        TransactionResponse,
         TransactionMapper>
         implements TransactionService {
     private final ExpertService expertService;
@@ -30,8 +32,8 @@ public class TransactionServiceImpl
     public TransactionServiceImpl(
             TransactionRepository repository,
             TransactionMapper mapper,
-           @Lazy ExpertService expertService,
-          @Lazy  CustomerService customerService) {
+            @Lazy ExpertService expertService,
+            @Lazy CustomerService customerService) {
         super(repository, mapper);
 
         this.expertService = expertService;
@@ -39,7 +41,7 @@ public class TransactionServiceImpl
     }
 
     @Override
-    protected void setEntityRelations(Transaction entity, SaveOrUpdateTransaction dto) {
+    protected void setEntityRelations(Transaction entity, TransactionRequest dto) {
         if (dto.expertId() != null) {
             entity.setExpert(expertService.findById(dto.expertId()));
         }
@@ -49,12 +51,8 @@ public class TransactionServiceImpl
     }
 
     @Override
-    public List<Transaction> findAllByCustomer(Long customerId) {
-        return repository.findAllByCustomer(customerService.findById(customerId));
-    }
-
-    @Override
-    public List<Transaction> findAllByExpert(Long expertId) {
-        return repository.findAllByExpert(expertService.findById(expertId));
+    public Page<TransactionResponse> findByUserId(Long customerId, Long expertId, Pageable pageable) {
+        return repository.findByCustomerIdOrExpertId(customerId, expertId, pageable)
+                .map(mapper::entityToResponse);
     }
 }
