@@ -28,7 +28,7 @@ public class Feedback extends BaseEntity <Long>{
     @Column(name = FEEDBACK_COLUMN,columnDefinition = "VARCHAR")
     private String feedback;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Order order;
 
 }

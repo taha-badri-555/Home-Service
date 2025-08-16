@@ -10,6 +10,7 @@ import java.time.ZonedDateTime;
 @MappedSuperclass
 @NoArgsConstructor
 @Getter
+@Setter
 public class BaseEntity<ID> {
 
     public static final String ID = "id";

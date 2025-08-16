@@ -1,9 +1,7 @@
 package ir.maktabsharif.final_project_taha_badri.domain.entity;
 
 import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseUser;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Customer;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Expert;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.base.Person;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +23,5 @@ public class Wallet extends BaseEntity<Long> {
     private Double amount;
 
     @OneToOne(fetch = FetchType.LAZY)
-    private BaseUser user;
+    private Person user;
 }
