@@ -170,7 +170,7 @@ public class ExpertServiceImpl
         if (dto.password() != null) {
             expert.setPassword(passwordEncoder.encode(dto.password()));
         }
-        if (dto.email() != null) {
+        if (dto.email() != null && !dto.email().equals(expert.getEmail())) {
             expert.setEmail(dto.email());
             expert.setVerified(false);
             emailService.createAndSendVerificationMail(expert);
