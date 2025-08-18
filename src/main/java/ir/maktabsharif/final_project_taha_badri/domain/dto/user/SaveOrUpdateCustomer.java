@@ -26,7 +26,7 @@ public record SaveOrUpdateCustomer(
                 message = "Password must contain both letters and numbers."
                 ,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         String password,
-        @Email(,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
+        @Email(groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         @NotBlank(message = "email is blank." ,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         @NotNull(groups = ValidationGroup.Save.class,message = "email is null.")
         String email,

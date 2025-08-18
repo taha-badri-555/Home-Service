@@ -98,12 +98,20 @@ public class CustomerServiceImpl
 
     @Override
     public CustomerResponse update(Long customerId, CustomerRequest customerDTO) {
+        Customer byId = findById(customerId);
+        mapper.updateEntityWithRequest(customerDTO,byId);
+
         if (customerDTO.password() != null) {
-            Customer byId = findById(customerId);
             mapper.updateEntityWithRequest(customerDTO, byId);
             byId.setPassword(passwordEncoder.encode(customerDTO.password()));
             repository.save(byId);
         }
-        return super.update(customerDTO);
+        if (customerDTO.email() != null) {
+            byId.setEmail(customerDTO.email());
+            byId.setVerified(false);
+            emailService.createAndSendVerificationMail(byId);
+        }
+        Customer save = repository.save(byId);
+        return mapper.entityToResponse(save) ;
     }
 }

@@ -1,8 +1,8 @@
 package ir.maktabsharif.final_project_taha_badri.service.user.expert;
 
-import ir.maktabsharif.final_project_taha_badri.domain.dto.request.WalletRequest;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.request.ChangeImagePatch;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.request.EmailRequest;
+import ir.maktabsharif.final_project_taha_badri.domain.dto.request.WalletRequest;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.request.user.ExpertRequest;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.response.user.ExpertResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Service;
@@ -169,6 +169,11 @@ public class ExpertServiceImpl
         expert.setImage(path);
         if (dto.password() != null) {
             expert.setPassword(passwordEncoder.encode(dto.password()));
+        }
+        if (dto.email() != null) {
+            expert.setEmail(dto.email());
+            expert.setVerified(false);
+            emailService.createAndSendVerificationMail(expert);
         }
         Expert save = repository.save(expert);
         return mapper.entityToResponse(save);
