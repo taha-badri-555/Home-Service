@@ -21,8 +21,8 @@ public class Expert extends Person {
     public static final String SCORE_COLUMN = "score";
     public static final String AVG_SCORE_COLUMN = "avg_score";
 
-    @Lob
-    @Column(name = IMAGE_COLUMN,length =  300_000)
+    @Basic(fetch = FetchType.EAGER)
+    @Column(name = IMAGE_COLUMN)
     private byte[] image;
 
     @Column(name = SCORE_COLUMN)
