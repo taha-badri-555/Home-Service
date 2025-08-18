@@ -178,7 +178,7 @@ public class ProposalServiceImpl
     @Transactional
     @Override
     public void chooseProposal(Long customerId, Long proposalId, Long orderId) {
-        extracted(customerId, proposalId);
+        extracted(customerId, orderId);
         this.setOrderWithProposal(proposalId);
         this.changeAllProposalStatusByOrderId(orderId, ProposalStatus.REJECTED);
         this.changeStatusById(proposalId, ProposalStatus.ACCEPTED);

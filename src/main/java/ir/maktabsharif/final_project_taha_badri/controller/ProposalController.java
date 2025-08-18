@@ -140,7 +140,7 @@ public class ProposalController {
             @AuthenticationPrincipal Person userDetails,
             @RequestParam Long proposalId,
             @RequestParam Long orderId) {
-        proposalService.chooseProposal(userDetails.getId(),orderId , proposalId);
+        proposalService.chooseProposal(userDetails.getId(), proposalId, orderId);
         return ResponseEntity.ok("Proposal " + proposalId + " accepted for order " + orderId);
     }
 
