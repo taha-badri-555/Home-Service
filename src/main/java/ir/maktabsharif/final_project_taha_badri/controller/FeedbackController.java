@@ -77,7 +77,8 @@ public class FeedbackController {
     }
 
     @GetMapping("/score")
-    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status == 'ACCEPT'")
+    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status ==" +
+            " T(ir.maktabsharif.final_project_taha_badri.domain.enums.ExpertStatus).ACCEPT")
     @Operation(summary = "get score by order and expert.", description = "retrieve the feedback score for a specific order and expert.")
     public ResponseEntity<Byte> getScoreByOrderAndExpert(
             @RequestParam Long orderId,

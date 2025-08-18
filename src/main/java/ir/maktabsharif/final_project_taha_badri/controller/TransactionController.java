@@ -61,7 +61,8 @@ public class TransactionController {
     }
 
     @GetMapping("/all-by-user-id")
-    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status == 'ACCEPT'")
+    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status ==" +
+            " T(ir.maktabsharif.final_project_taha_badri.domain.enums.ExpertStatus).ACCEPT")
     @Operation(summary = "find all transactions.",
             description = "find all transactions by CurrentUser id")
     public ResponseEntity<Page<TransactionResponse>> findAllByCurrentUser(

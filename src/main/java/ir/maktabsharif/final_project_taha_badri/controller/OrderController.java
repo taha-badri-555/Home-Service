@@ -76,7 +76,8 @@ public class OrderController {
     }
 
     @GetMapping("/by-expert")
-    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status == 'ACCEPT'")
+    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status ==" +
+            " T(ir.maktabsharif.final_project_taha_badri.domain.enums.ExpertStatus).ACCEPT")
     @Operation(summary = "find all orders by expert", description = "list all orders assigned to a given expert.")
     public ResponseEntity<Page<OrderResponse>> findAllByExpert(
             @AuthenticationPrincipal Person userDetails,

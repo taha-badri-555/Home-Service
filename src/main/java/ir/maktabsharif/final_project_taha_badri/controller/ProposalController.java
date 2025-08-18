@@ -145,7 +145,8 @@ public class ProposalController {
     }
 
     @GetMapping("/by-expert")
-    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status == 'ACCEPT'")
+    @PreAuthorize("hasAnyRole('EXPERT') and authentication.principal.status ==" +
+            " T(ir.maktabsharif.final_project_taha_badri.domain.enums.ExpertStatus).ACCEPT")
     @Operation(summary = "find all orders with expert ID", description = "find all orders with expert send proposal.")
     public ResponseEntity<Page<OrderResponse>> ordersByExpert(
             @AuthenticationPrincipal Person userDetails,
