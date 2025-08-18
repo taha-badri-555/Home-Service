@@ -21,8 +21,6 @@ public record ExpertResponse
 
          String email,
 
-         byte[] image,
-
          Double score,
 
          ExpertStatus status,
@@ -46,16 +44,13 @@ public record ExpertResponse
     }
 
     public ExpertResponse(ExpertStatus status) {
-        this(null, null,null, null, null,  null, null, 0.0, status, null);
+        this(null, null,null, null,  null, null, 0.0, status, null);
     }
 
     public ExpertResponse(Double avgScore) {
-        this(null,null, null, null, null, null, null, 0.0, null, avgScore);
+        this(null,null, null, null,  null, null, 0.0, null, avgScore);
     }
 
-    public ExpertResponse(byte[] imagePath) {
-        this(null,null, null, null, null, null,  imagePath, null, null, null);
-    }
 
 }
 
