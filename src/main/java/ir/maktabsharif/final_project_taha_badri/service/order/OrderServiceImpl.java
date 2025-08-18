@@ -169,14 +169,8 @@ public class OrderServiceImpl
         ZonedDateTime endDate = order.getEndDate();
         Duration duration = Duration.between(endDate, now);
         long hours = duration.toHours();
-        Double scoresAVGByExpertId = feedbackService.getScoresAVGByExpertId(expert.getId());
-        expert.setAvgScore(scoresAVGByExpertId);
-        expertService.update(expertMapper.entityToRequest(expert));
-        if (scoresAVGByExpertId < 0) {
-            expertService.update(expert.getId(), new ExpertRequest(ExpertStatus.DISABLED));
-        }
-        if (hours > 0) {
-            Byte score = (byte) (hours * -1);
+        if (hours < 0) {
+            Byte score = (byte) (hours);
             feedbackService.save(new FeedbackRequest(
                     null,
                     score,
@@ -184,7 +178,16 @@ public class OrderServiceImpl
                     order.getId()));
             Double avgScore = feedbackService.getScoresAVGByExpertId(expert.getId());
             expert.setAvgScore(avgScore);
-            expertService.update(expertMapper.entityToRequest(expert));
+            expertService.update(expert.getId(), expertMapper.entityToRequest(expert));
+            Double scoresAVGByExpertId = feedbackService.getScoresAVGByExpertId(expert.getId());
+            expert.setAvgScore(scoresAVGByExpertId);
+            expertService.update(expert.getId(), expertMapper.entityToRequest(expert));
+
+
+            if (scoresAVGByExpertId != null && scoresAVGByExpertId < 0) {
+                expertService.update(expert.getId(), new ExpertRequest(ExpertStatus.DISABLED));
+            }
+
             if (avgScore < 0) {
 
                 expertService.update(expert.getId(), new ExpertRequest(ExpertStatus.DISABLED));
