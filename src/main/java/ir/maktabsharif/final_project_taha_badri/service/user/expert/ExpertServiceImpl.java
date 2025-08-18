@@ -166,7 +166,6 @@ public class ExpertServiceImpl
         }
 
         mapper.updateEntityWithRequest(dto, expert);
-        expert.setImage(path);
         if (dto.password() != null) {
             expert.setPassword(passwordEncoder.encode(dto.password()));
         }
