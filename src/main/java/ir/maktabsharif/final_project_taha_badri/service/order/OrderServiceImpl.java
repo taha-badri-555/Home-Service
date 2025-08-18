@@ -26,6 +26,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -165,12 +166,11 @@ public class OrderServiceImpl
         }
         Order order = findById(orderId);
         Expert expert = order.getExpert();
-        ZonedDateTime now = ZonedDateTime.now();
-        ZonedDateTime endDate = order.getEndDate();
-        Duration duration = Duration.between(endDate, now);
-        long hours = duration.toHours();
-        if (hours < 0) {
-            Byte score = (byte) (hours);
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime endDate = order.getEndDate().toLocalDateTime();
+        long hours =  Duration.between(endDate, now).toHours();
+        if (hours > 0) {
+            Byte score = (byte) (hours*(-1));
             feedbackService.save(new FeedbackRequest(
                     null,
                     score,
