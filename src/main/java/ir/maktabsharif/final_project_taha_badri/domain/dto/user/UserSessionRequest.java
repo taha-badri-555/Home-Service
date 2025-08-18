@@ -10,7 +10,7 @@ public record UserSessionRequest(
         @Min(value = 0,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         Long id,
         @Email(groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
-        @NotNull(,groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
+        @NotNull(groups = {ValidationGroup.Update.class, ValidationGroup.Save.class})
         String email
 ) implements Identifiable<Long> {
     @Override
