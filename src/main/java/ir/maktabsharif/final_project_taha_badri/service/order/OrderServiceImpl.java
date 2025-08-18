@@ -73,7 +73,7 @@ public class OrderServiceImpl
                 order.getExpert().getCreateDate(), order.getExpert().getLastUpdateDate(),
                 order.getExpert().getId(),
                 order.getExpert().getFirstName(), order.getExpert().getLastName(),
-                order.getExpert().getEmail(), order.getExpert().getImage(),
+                order.getExpert().getEmail(),
                 order.getExpert().getScore(), order.getExpert().getStatus(), order.getExpert().getAvgScore());
     }
 
