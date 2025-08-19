@@ -4,127 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="feat: add spring security(jwt) and Email verification">
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkList.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/change" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/ServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/AddressRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/ChangeImagePatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/EmailAndIdRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/EmailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/FeedbackRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/PaymentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/ProposalRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/SearchOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/SearchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/ServiceRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/TransactionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/UserSessionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/WalletRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/user/CustomerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/user/CustomerUpdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/user/ExpertRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/user/ManagerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/request/user/UserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/AddressResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/AuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/FeedbackResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/OrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/ProposalResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/ServiceResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/TransactionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/WalletResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/user/CustomerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/user/ExpertResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/user/ManagerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/response/user/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/entity/EmailVerificationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/EmailNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/SuggestPriceIsLow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/email/EmailVerificationTokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/order/OrderSpecifications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/email/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/email/EmailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthorizationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/MyUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/Utility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="fix: OrderServiceImpl">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/FinalProjectTahaBadriApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/FinalProjectTahaBadriApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/FeedbackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/ProposalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/ProposalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/ExpertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/ExpertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/AddressMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/BaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/BaseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/FeedbackMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/FeedbackMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ProposalMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ProposalMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/ServiceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/TransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/TransactionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/WalletMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/WalletMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/CustomerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ExpertMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ExpertMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/ManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/mapper/user/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/address/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/address/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/base/user/BaseUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/base/user/BaseUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/feedback/FeedbackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/feedback/FeedbackRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/order/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/proposal/ProposalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/proposal/ProposalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/service/ServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/service/ServiceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/transaction/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/transaction/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/expert/ExpertRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/expert/ExpertRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/user/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/user/user/UserSpecifications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/wallet/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/repository/wallet/WalletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/address/AddressServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/InsufficientBalanceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/InsufficientBalanceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/home_service/ServiceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/proposal/ProposalServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/managert/ManagerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/Payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ir/maktabsharif/final_project_taha_badri/service/base/BaseServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="d310695995263c5a1903a278a1205a1c7f6ad7d8" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,7 +55,19 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/10.1.41/tomcat-embed-core-10.1.41.jar!/jakarta/servlet/Filter.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.5.0/spring-data-commons-3.5.0.jar!/org/springframework/data/repository/CrudRepository.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/6.5.0/spring-security-config-6.5.0.jar!/org/springframework/security/config/annotation/method/configuration/DeferringMethodInterceptor.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/authorization/AuthorizationManager.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/authorization/ObservationAuthorizationManager.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/authorization/method/AuthorizationManagerBeforeMethodInterceptor.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/authorization/method/ExpressionUtils.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/authorization/method/PreAuthorizeAuthorizationManager.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.5.0/spring-security-web-6.5.0.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/6.2.7/spring-aop-6.2.7.jar!/org/springframework/aop/support/AopUtils.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar!/org/springframework/expression/spel/ast/MethodReference.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar!/org/springframework/expression/spel/ast/SpelNodeImpl.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar!/org/springframework/expression/spel/standard/SpelExpression.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar!/org/springframework/expression/spel/support/ReflectiveMethodExecutor.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/6.2.7/spring-tx-6.2.7.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.2.7/spring-web-6.2.7.jar!/org/springframework/web/filter/GenericFilterBean.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.2.7/spring-web-6.2.7.jar!/org/springframework/web/filter/OncePerRequestFilter.class" root0="SKIP_INSPECTION" />
@@ -365,8 +266,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.27812.49" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.27812.49" />
       </set>
     </attachedChunks>
   </component>
@@ -457,22 +358,12 @@
       <workItem from="1755327056923" duration="2221000" />
       <workItem from="1755329296511" duration="1183000" />
       <workItem from="1755355657814" duration="1639000" />
-    </task>
-    <task id="LOCAL-00001" summary="Add base entity, service, repository, Mapper,">
-      <option name="closed" value="true" />
-      <created>1751384290392</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384290392</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Add base entity, service, repository, Mapper,">
-      <option name="closed" value="true" />
-      <created>1751384354616</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384354616</updated>
+      <workItem from="1755438032379" duration="1984000" />
+      <workItem from="1755502765426" duration="6322000" />
+      <workItem from="1755518712911" duration="31000" />
+      <workItem from="1755518782802" duration="237000" />
+      <workItem from="1755519066761" duration="18484000" />
+      <workItem from="1755587438314" duration="7000000" />
     </task>
     <task id="LOCAL-00003" summary="Add base entity, service, repository, Mapper,">
       <option name="closed" value="true" />
@@ -762,7 +653,111 @@
       <option name="project" value="LOCAL" />
       <updated>1755330866882</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="delete: old DTO and test">
+      <option name="closed" value="true" />
+      <created>1755505334053</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1755505334053</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix: change data type in database">
+      <option name="closed" value="true" />
+      <created>1755505581009</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1755505581009</updated>
+    </task>
+    <task id="LOCAL-00041" summary="refactor: delete a property(image)">
+      <option name="closed" value="true" />
+      <created>1755505748828</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1755505748829</updated>
+    </task>
+    <task id="LOCAL-00042" summary="refactor: change constructor">
+      <option name="closed" value="true" />
+      <created>1755505999929</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1755505999929</updated>
+    </task>
+    <task id="LOCAL-00043" summary="refactor: change property validation">
+      <option name="closed" value="true" />
+      <created>1755506152666</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1755506152666</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat: add email verification for email update.">
+      <option name="closed" value="true" />
+      <created>1755521053650</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1755521053650</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix: fix @PreAuthorize">
+      <option name="closed" value="true" />
+      <created>1755525128750</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1755525128750</updated>
+    </task>
+    <task id="LOCAL-00046" summary="delete: BaseUser">
+      <option name="closed" value="true" />
+      <created>1755525158074</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1755525158074</updated>
+    </task>
+    <task id="LOCAL-00047" summary="refactor: change orderId with proposalId">
+      <option name="closed" value="true" />
+      <created>1755526370131</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1755526370131</updated>
+    </task>
+    <task id="LOCAL-00048" summary="refactor: ExpertServiceImpl">
+      <option name="closed" value="true" />
+      <created>1755532764030</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1755532764030</updated>
+    </task>
+    <task id="LOCAL-00049" summary="refactor: OrderServiceImpl">
+      <option name="closed" value="true" />
+      <created>1755532807492</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1755532807492</updated>
+    </task>
+    <task id="LOCAL-00050" summary="refactor: ExpertServiceImpl">
+      <option name="closed" value="true" />
+      <created>1755533605556</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1755533605557</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix: OrderServiceImpl">
+      <option name="closed" value="true" />
+      <created>1755538640322</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1755538640322</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,18 +775,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete META-INF" />
-    <MESSAGE value="update database" />
-    <MESSAGE value="Add new dtoes" />
-    <MESSAGE value="Refactor Dto" />
-    <MESSAGE value="Refactor Mappers" />
-    <MESSAGE value="Add New Mappers" />
-    <MESSAGE value="Add New enums and refactor enums" />
-    <MESSAGE value="Add Transaction and repository and service" />
-    <MESSAGE value="Add User Service and repository" />
-    <MESSAGE value="refactor entities" />
-    <MESSAGE value="refactor all repository" />
-    <MESSAGE value="Add new exceptions" />
     <MESSAGE value="refactor OrderStatus" />
     <MESSAGE value="refactor AddressRepository" />
     <MESSAGE value="refactor Services" />
@@ -805,7 +788,19 @@
     <MESSAGE value="refactor application.properties,&#10;dataSources.xml,misc.xml,workspace.xml" />
     <MESSAGE value="refactor: some entities and their fields." />
     <MESSAGE value="feat: add spring security(jwt) and Email verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add spring security(jwt) and Email verification" />
+    <MESSAGE value="delete: old DTO and test" />
+    <MESSAGE value="fix: change data type in database" />
+    <MESSAGE value="refactor: delete a property(image)" />
+    <MESSAGE value="refactor: change constructor" />
+    <MESSAGE value="refactor: change property validation" />
+    <MESSAGE value="feat: add email verification for email update." />
+    <MESSAGE value="fix: fix @PreAuthorize" />
+    <MESSAGE value="delete: BaseUser" />
+    <MESSAGE value="refactor: change orderId with proposalId" />
+    <MESSAGE value="refactor: OrderServiceImpl" />
+    <MESSAGE value="refactor: ExpertServiceImpl" />
+    <MESSAGE value="fix: OrderServiceImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: OrderServiceImpl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -814,11 +809,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/expert/ExpertServiceImpl.java</url>
           <line>102</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/user/customer/CustomerServiceImpl.java</url>
@@ -859,6 +849,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationProvider.java</url>
           <line>22</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImpl.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
