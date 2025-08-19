@@ -38,7 +38,7 @@ public class FeedbackServiceImpl
 
     @Override
     public FeedbackResponse save(Long customerId, FeedbackRequest dto) {
-        if (findByOrderId(dto.orderId()) != null) {
+        if (repository.findByOrder_Id(dto.orderId()).isPresent()) {
 
             if (orderService.findById(dto.orderId()).getCustomer() != null) {
                 Long feedbackCustomerId = orderService.findById(dto.orderId()).getCustomer().getId();

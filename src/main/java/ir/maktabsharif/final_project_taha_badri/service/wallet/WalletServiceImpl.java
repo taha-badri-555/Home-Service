@@ -80,7 +80,7 @@ public class WalletServiceImpl
     @Override
     public WalletResponse payFromWallet(Long customerId, FeedbackRequest feedback) {
         Long id = orderService.findById(feedback.orderId()).getCustomer().getId();
-        if (!Objects.equals(customerId, id)) {
+        if (customerId != id) {
             throw new IllegalArgumentException("this order is not for the customer with id: " + customerId);
         }
         Order order = orderService.findById(feedback.orderId());
@@ -92,7 +92,7 @@ public class WalletServiceImpl
                     new TransactionRequest(
                             null,
                             expertWallet.getAmount(),
-                            feedback.orderId(),
+                            customerId,
                             expertWallet.getUser().getId(),
                             TransactionalStatus.CANCELED)
 

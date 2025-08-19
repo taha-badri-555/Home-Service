@@ -3,6 +3,8 @@ package ir.maktabsharif.final_project_taha_badri.service.transaction;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.request.TransactionRequest;
 import ir.maktabsharif.final_project_taha_badri.domain.dto.response.TransactionResponse;
 import ir.maktabsharif.final_project_taha_badri.domain.entity.Transaction;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Customer;
+import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Expert;
 import ir.maktabsharif.final_project_taha_badri.domain.mapper.TransactionMapper;
 import ir.maktabsharif.final_project_taha_badri.repository.transaction.TransactionRepository;
 import ir.maktabsharif.final_project_taha_badri.service.base.BaseServiceImpl;
@@ -54,5 +56,16 @@ public class TransactionServiceImpl
     public Page<TransactionResponse> findByUserId(Long customerId, Long expertId, Pageable pageable) {
         return repository.findByCustomerIdOrExpertId(customerId, expertId, pageable)
                 .map(mapper::entityToResponse);
+    }
+
+    @Override
+    public TransactionResponse save(TransactionRequest dto) {
+        Customer customer = customerService.findById(dto.customerId());
+        Expert expert = expertService.findById(dto.expertId());
+
+        Transaction transaction= new Transaction(dto.amount(), customer,expert,dto.status());
+
+        return mapper.entityToResponse(repository.save(transaction));
+
     }
 }
