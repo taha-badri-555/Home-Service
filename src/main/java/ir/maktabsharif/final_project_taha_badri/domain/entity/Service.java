@@ -1,14 +1,11 @@
 package ir.maktabsharif.final_project_taha_badri.domain.entity;
 
 import ir.maktabsharif.final_project_taha_badri.domain.entity.base.BaseEntity;
-import ir.maktabsharif.final_project_taha_badri.domain.entity.user.Expert;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Getter

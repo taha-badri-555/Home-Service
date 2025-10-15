@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="fix: OrderServiceImpl">
+    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="feat: add Keycloak Configurations.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/UserInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/KeycloakRealmRoleConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/UserInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/InsufficientBalanceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/exception/InsufficientBalanceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/feedback/FeedbackServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/transaction/TransactionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/wallet/WalletServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/entity/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/entity/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthorizationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,16 +32,17 @@
         <option value="Enum" />
         <option value="Exception" />
         <option value="Interface" />
-        <option value="Class" />
-        <option value="Record" />
         <option value="JUnit5 Test Class" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="bb99c9820f983553b28ef2abc2b8d93a23b39f18" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +56,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/taha-badri-555/Home-Service.git&quot;,
-    &quot;accountId&quot;: &quot;b55a0d10-b03c-4b0e-b11b-e6cbf3d957e5&quot;
+    &quot;accountId&quot;: &quot;1e1eb307-f5ab-4d9d-994d-c7989c28f7a4&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -99,6 +106,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;HTTP Request.FinalProjectTahaBadriApplication | #2.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AddressServiceImplTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AddressServiceImplTest.update_shouldThrowIfIdNotFound.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AddressServiceImplTest.update_shouldWorkWhenIdExists.executor&quot;: &quot;Run&quot;,
@@ -131,13 +139,15 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.FinalProjectTahaBadriApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Keycloak&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/media/taha/Data1/Me/Java/Projec/Final_Project_Taha_Badri&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -148,7 +158,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -185,20 +195,8 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.FinalProjectTahaBadriApplication">
-    <configuration name="AddressServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Home_Service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ir.maktabsharif.final_project_taha_badri.service.address.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ir.maktabsharif.final_project_taha_badri.service.address" />
-      <option name="MAIN_CLASS_NAME" value="ir.maktabsharif.final_project_taha_badri.service.address.AddressServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="FinalProjectTahaBadriApplication | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/FinalProjectTahaBadriApplication.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="All in Home_Service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Home_Service" />
@@ -255,21 +253,27 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.FinalProjectTahaBadriApplication | #2" />
         <item itemvalue="JUnit.java in Final_Project_Taha_Badri (1)" />
         <item itemvalue="JUnit.FeedbackServiceImplTest" />
         <item itemvalue="JUnit.BaseServiceImplTest" />
         <item itemvalue="JUnit.All in Home_Service" />
-        <item itemvalue="JUnit.AddressServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.27812.49" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.27812.49" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Physical" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -364,46 +368,10 @@
       <workItem from="1755518782802" duration="237000" />
       <workItem from="1755519066761" duration="18484000" />
       <workItem from="1755587438314" duration="7000000" />
-    </task>
-    <task id="LOCAL-00003" summary="Add base entity, service, repository, Mapper,">
-      <option name="closed" value="true" />
-      <created>1751384367820</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384367820</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Add entities">
-      <option name="closed" value="true" />
-      <created>1751384471557</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384471557</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Add repository and repositoryImpl">
-      <option name="closed" value="true" />
-      <created>1751384667682</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384667682</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Add service and serviceImpl">
-      <option name="closed" value="true" />
-      <created>1751384788621</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384788621</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add mappers and ValidationGroup">
-      <option name="closed" value="true" />
-      <created>1751384866774</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384866774</updated>
+      <workItem from="1760338382596" duration="18243000" />
+      <workItem from="1760425177823" duration="16541000" />
+      <workItem from="1760506315951" duration="769000" />
+      <workItem from="1760507223374" duration="6453000" />
     </task>
     <task id="LOCAL-00008" summary="Add enums">
       <option name="closed" value="true" />
@@ -757,13 +725,68 @@
       <option name="project" value="LOCAL" />
       <updated>1755538640322</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="feat: add Keycloak Configurations.">
+      <option name="closed" value="true" />
+      <created>1760508653345</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1760508653345</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat: add Keycloak Configurations.">
+      <option name="closed" value="true" />
+      <created>1760508751368</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1760508751368</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat: add Keycloak Configurations.">
+      <option name="closed" value="true" />
+      <created>1760509519132</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1760509519132</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feat: add Keycloak Configurations.">
+      <option name="closed" value="true" />
+      <created>1760515096600</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1760515096601</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat: add Keycloak Configurations.">
+      <option name="closed" value="true" />
+      <created>1760516184746</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1760516184747</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Keycloak" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -775,8 +798,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor OrderStatus" />
-    <MESSAGE value="refactor AddressRepository" />
     <MESSAGE value="refactor Services" />
     <MESSAGE value="refactor Pom.xml" />
     <MESSAGE value="Add new bean in FinalProjectTahaBadriApplication" />
@@ -800,7 +821,9 @@
     <MESSAGE value="refactor: OrderServiceImpl" />
     <MESSAGE value="refactor: ExpertServiceImpl" />
     <MESSAGE value="fix: OrderServiceImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: OrderServiceImpl" />
+    <MESSAGE value="chore: dataSources.xml, workspace.xml" />
+    <MESSAGE value="feat: add Keycloak Configurations." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Keycloak Configurations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,34 +844,9 @@
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthorizationFilter.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.5.0/spring-security-core-6.5.0.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.class</url>
           <line>72</line>
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationProvider.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/order/OrderServiceImpl.java</url>
@@ -870,6 +868,10 @@
           <line>89</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.IllegalAccessException" package="java.lang" />
+          <option name="timeStamp" value="38" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
