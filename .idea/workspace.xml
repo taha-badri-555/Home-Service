@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="feat: add Keycloak Configurations.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/dto/UserInfoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/KeycloakRealmRoleConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="57b3b233-f293-4deb-b6f8-37c57505900f" name="Changes" comment="feat: add handelAuthorizationDeniedException">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/entity/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/domain/entity/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtAuthorizationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/service/security/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/maktabsharif/final_project_taha_badri/util/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,70 +358,7 @@
       <workItem from="1760425177823" duration="16541000" />
       <workItem from="1760506315951" duration="769000" />
       <workItem from="1760507223374" duration="6453000" />
-    </task>
-    <task id="LOCAL-00008" summary="Add enums">
-      <option name="closed" value="true" />
-      <created>1751384890330</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384890330</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Add DTO classes.">
-      <option name="closed" value="true" />
-      <created>1751384962715</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384962715</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Add test classes.">
-      <option name="closed" value="true" />
-      <created>1751384983088</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1751384983088</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Add main class.">
-      <option name="closed" value="true" />
-      <created>1751385001607</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1751385001607</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add XMLs.">
-      <option name="closed" value="true" />
-      <created>1751385049291</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1751385049291</updated>
-    </task>
-    <task id="LOCAL-00013" summary="delete META-INF">
-      <option name="closed" value="true" />
-      <created>1751707665614</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707665614</updated>
-    </task>
-    <task id="LOCAL-00014" summary="update database">
-      <option name="closed" value="true" />
-      <created>1751707779678</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707779678</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add new dtoes">
-      <option name="closed" value="true" />
-      <created>1752575151768</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1752575151768</updated>
+      <workItem from="1760525561810" duration="610000" />
     </task>
     <task id="LOCAL-00016" summary="Refactor Dto">
       <option name="closed" value="true" />
@@ -765,7 +688,71 @@
       <option name="project" value="LOCAL" />
       <updated>1760516184747</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="delete: jwt token classes">
+      <option name="closed" value="true" />
+      <created>1760516949969</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1760516949969</updated>
+    </task>
+    <task id="LOCAL-00058" summary="add dependencies">
+      <option name="closed" value="true" />
+      <created>1760517211174</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517211174</updated>
+    </task>
+    <task id="LOCAL-00059" summary="add Beans">
+      <option name="closed" value="true" />
+      <created>1760517395856</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517395856</updated>
+    </task>
+    <task id="LOCAL-00060" summary="chore:">
+      <option name="closed" value="true" />
+      <created>1760517495072</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517495072</updated>
+    </task>
+    <task id="LOCAL-00061" summary="feat:add UserInfoDTO">
+      <option name="closed" value="true" />
+      <created>1760517547820</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517547820</updated>
+    </task>
+    <task id="LOCAL-00062" summary="feat:add UserInfoService">
+      <option name="closed" value="true" />
+      <created>1760517583899</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517583899</updated>
+    </task>
+    <task id="LOCAL-00063" summary="feat:add KeycloakRealmRoleConverter">
+      <option name="closed" value="true" />
+      <created>1760517604216</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517604216</updated>
+    </task>
+    <task id="LOCAL-00064" summary="feat: add handelAuthorizationDeniedException">
+      <option name="closed" value="true" />
+      <created>1760517702436</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1760517702436</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,14 +785,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor Services" />
-    <MESSAGE value="refactor Pom.xml" />
-    <MESSAGE value="Add new bean in FinalProjectTahaBadriApplication" />
-    <MESSAGE value="Add Payment.html and Login.html&#10;and RecaptchaService" />
-    <MESSAGE value="refactor ServiceMapper" />
-    <MESSAGE value="add Identifiable" />
-    <MESSAGE value="add GlobalExceptionHandler" />
-    <MESSAGE value="add Controllers" />
     <MESSAGE value="refactor application.properties,&#10;dataSources.xml,misc.xml,workspace.xml" />
     <MESSAGE value="refactor: some entities and their fields." />
     <MESSAGE value="feat: add spring security(jwt) and Email verification" />
@@ -823,7 +802,15 @@
     <MESSAGE value="fix: OrderServiceImpl" />
     <MESSAGE value="chore: dataSources.xml, workspace.xml" />
     <MESSAGE value="feat: add Keycloak Configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Keycloak Configurations." />
+    <MESSAGE value="delete: jwt token classes" />
+    <MESSAGE value="add dependencies" />
+    <MESSAGE value="add Beans" />
+    <MESSAGE value="chore:" />
+    <MESSAGE value="feat:add UserInfoDTO" />
+    <MESSAGE value="feat:add UserInfoService" />
+    <MESSAGE value="feat:add KeycloakRealmRoleConverter" />
+    <MESSAGE value="feat: add handelAuthorizationDeniedException" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add handelAuthorizationDeniedException" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
