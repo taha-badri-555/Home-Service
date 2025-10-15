@@ -3,6 +3,7 @@ package ir.maktabsharif.final_project_taha_badri.util;
 import ir.maktabsharif.final_project_taha_badri.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -79,6 +80,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleException
             (Exception e) {
         return handleException(e, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ApiError> handelAuthorizationDeniedException
+            (AuthorizationDeniedException e) {
+        return handleException(e, HttpStatus.FORBIDDEN);
     }
 
 }
